@@ -4,8 +4,11 @@
 
 local detain = game.ReplicatedStorage.DetainEvent
 
-
 function gig()
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+    	Title = "Credits",
+    	Text = "r: lvg1e\ndsc: Dreamer#5114/cereb#2188\nrsf: vroom1234567890"
+    })
 end
 
 function commands()
@@ -31,10 +34,10 @@ function get()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldCFrame
     end
 end
-
 function release()
     detain:FireServer("undetain")
 end
+
 
 function bring(player)
     if player ~= "all" and not game.Players:FindFirstChild(player) then
@@ -44,7 +47,7 @@ function bring(player)
             end
         end
     end
-    
+
     if player == "all" then
         for i,v in pairs(game.Players:GetChildren()) do
             if v ~= game.Players.LocalPlayer then
@@ -72,7 +75,6 @@ function kick(player)
     wait(1)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldCFrame
 end
-
 function music(id)
     game:GetService("ReplicatedStorage").MusicEvents.RequestSong:FireServer(id)
 end
@@ -99,3 +101,5 @@ end
 game.Players.LocalPlayer.Chatted:Connect(function(msg)
     messageCmd(msg)
 end)
+
+gig()
